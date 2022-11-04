@@ -4,15 +4,15 @@ import { Chart } from "primereact/chart";
 
 import LastClicked from "./LastClicked";
 import { AppContext } from "../context/AppContext";
+import { randomColor } from "../utils/randomColors";
+import { Button } from "primereact/button";
+import { AuthContext } from "../context/AuthContext";
 
 const Dashboard = () => {
   const { data } = useContext(AppContext);
+  const { logoutUser } = useContext(AuthContext);
 
-  const randomColor = () =>
-    "#" + Math.floor(Math.random() * 16777215).toString(16);
-
-  console.log(randomColor());
-  console.log(data);
+  // console.log(data);
 
   const [curr] = useState(["INR", "PKR", "AFN", "BTN", "GMD"]);
 
@@ -56,6 +56,18 @@ const Dashboard = () => {
         <h3>Currency Exchange</h3>
         <Chart type='bar' data={multiAxisData} options={multiAxisOptions} />
         <LastClicked />
+        <div className='flex justify-content-center gap-1'>
+          <Button
+            label='Logout'
+            className='p-button-danger'
+            onClick={logoutUser}
+          />
+          <Button
+            label='Go Back'
+            className='p-button-warning'
+            onClick={logoutUser}
+          />
+        </div>
       </div>
     </>
   );

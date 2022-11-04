@@ -5,7 +5,6 @@ import { AppContext } from "../context/AppContext";
 
 const LastClicked = () => {
   const { data } = useContext(AppContext);
-
   const timestamp = new Date(data.timestamp * 1000);
   const hours = timestamp.getHours(),
     minute = timestamp.getMinutes();
