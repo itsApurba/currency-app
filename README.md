@@ -1,11 +1,9 @@
 # currency-app
 
-
 developing a ReactJS exchange rate dashboard using the following available details
 
-
-
 UI:
+
 - Users first name (required field)
 
 - Users email address (form validated and required field)
@@ -38,7 +36,7 @@ Frontend calls an endpoint from the nodejs server to retrieve data
 
 Data is prefetched every n minutes
 
-Use a React UI Component library 
+Use a React UI Component library
 
 Extra points if "PrimeReact" is used
 
