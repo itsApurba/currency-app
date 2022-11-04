@@ -7,12 +7,15 @@ import "primeicons/primeicons.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.css";
 import "primeflex/primeflex.css";
+import { AppContextProviderComponent } from "./context/AppContext";
 
 function App() {
   return (
-    <div className='App'>
-      <AllRoutes />
-    </div>
+    <AppContextProviderComponent>
+      <div className='App'>
+        <AllRoutes />
+      </div>
+    </AppContextProviderComponent>
   );
 }
 

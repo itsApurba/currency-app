@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useFormik } from "formik";
 import { Button } from "primereact/button";
 import { classNames } from "primereact/utils";
 
 import { InputText } from "primereact/inputtext";
 import { useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { getData } from "../api/getData";
+import { AppContext } from "../context/AppContext";
 
 const Login = () => {
   const [formData, setFormData] = useState({});
+  const { loginUser } = useContext(AuthContext);
+  const { setData } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -30,13 +37,18 @@ const Login = () => {
 
       return errors;
     },
+
     onSubmit: (data) => {
       setFormData(data);
+      loginUser(formData.email, formData.name);
+      getData("USD").then((res) => {
+        setData(res);
+        navigate("/dashboard");
+      });
+
       formik.resetForm();
     },
   });
-
-  console.log(formData);
 
   const isFormFieldValid = (name) =>
     !!(formik.touched[name] && formik.errors[name]);
