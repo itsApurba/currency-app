@@ -1,5 +1,7 @@
 # currency-app
 
+[Deploy Link](https://currency-app-zeta-two.vercel.app/)
+
 developing a ReactJS exchange rate dashboard using the following available details
 
 UI:
