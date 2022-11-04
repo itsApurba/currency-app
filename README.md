@@ -49,3 +49,7 @@ UI should be optimized for laptop screens (1024px minimum)
 Bonus if optimized for mobile screens (425px)
 
 Display interesting stats (highest value compared to USD, current INR vs USD value, etc.)
+
+elae.nag.ai.l.mo.re@gmail.com
+
+rA9U9Wr3Tcq4Eg0KzstPN8DSWlnoBTpW
