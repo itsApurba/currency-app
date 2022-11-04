@@ -26,7 +26,7 @@ UI:
 
 - ReactJS
 
-- Chakra UI
+- PrimeReact
 
 - NodeJs
 
