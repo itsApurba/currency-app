@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useFormik } from "formik";
 import { Button } from "primereact/button";
 import { classNames } from "primereact/utils";
@@ -6,11 +6,17 @@ import { classNames } from "primereact/utils";
 import { InputText } from "primereact/inputtext";
 import { useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { getData } from "../api/getData";
 import { AppContext } from "../context/AppContext";
 
 const Login = () => {
+  let [searchParams, setSearchParams] = useSearchParams();
+
+  console.log(searchParams);
+
+  // useEffect(() => {}, []);
+
   const [formData, setFormData] = useState({});
   const { loginUser } = useContext(AuthContext);
   const { setData } = useContext(AppContext);
