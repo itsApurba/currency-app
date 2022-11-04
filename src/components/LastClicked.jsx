@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 
@@ -8,12 +10,13 @@ const LastClicked = () => {
   const hours = timestamp.getHours(),
     minute = timestamp.getMinutes();
   //   console.log(hours, minute);
-
+  dayjs.extend(relativeTime);
+  const timeAgo = dayjs(timestamp).fromNow();
   return (
     <>
       <div>
         <p>
-          <em>{`Last Sync:- ${hours}:${minute} mins ago.`}</em>
+          <em>{`Last Sync:- ${hours}:${minute} (${timeAgo})`}</em>
         </p>
       </div>
     </>

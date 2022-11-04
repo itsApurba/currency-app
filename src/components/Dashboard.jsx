@@ -8,24 +8,20 @@ import { AppContext } from "../context/AppContext";
 const Dashboard = () => {
   const { data } = useContext(AppContext);
 
+  const randomColor = () =>
+    "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+  console.log(randomColor());
   console.log(data);
 
-  const curr = ["INR", "PKR", "AFN", "BTN", "GMD"];
+  const [curr] = useState(["INR", "PKR", "AFN", "BTN", "GMD"]);
 
   const [multiAxisData] = useState({
     labels: curr.map((el) => el),
     datasets: [
       {
         label: "Currency Exchange",
-        backgroundColor: [
-          "#EC407A",
-          "#AB47BC",
-          "#42A5F5",
-          "#7E57C2",
-          "#66BB6A",
-          "#FFCA28",
-          "#26A69A",
-        ],
+        backgroundColor: curr.map(randomColor),
         yAxisID: "y",
         data: data.rates ? curr.map((el) => data.rates[el]) : null,
       },
@@ -36,9 +32,7 @@ const Dashboard = () => {
     aspectRatio: 0.8,
     plugins: {
       legend: {
-        labels: {
-          color: "#495057",
-        },
+        display: false,
       },
       tooltips: {
         mode: "index",
@@ -59,7 +53,7 @@ const Dashboard = () => {
   return (
     <>
       <div className='card'>
-        <h5>Currency Exchange</h5>
+        <h3>Currency Exchange</h3>
         <Chart type='bar' data={multiAxisData} options={multiAxisOptions} />
         <LastClicked />
       </div>
